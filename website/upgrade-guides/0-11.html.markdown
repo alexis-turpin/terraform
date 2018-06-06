@@ -306,7 +306,7 @@ created at all:
 
 ```hcl
 output "instance_id" {
-  value = "${element(concat(aws_instance.example.*.id, list("")), 0)}"
+  value = "${coalescelist(aws_instance.example.*.id, list(""))}"
 }
 ```
 
